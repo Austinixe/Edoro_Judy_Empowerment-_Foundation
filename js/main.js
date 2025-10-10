@@ -105,3 +105,38 @@ counters.forEach(counter => {
 
   observer.observe(counter);
 });
+
+
+
+// Mobile hamburger menu toggle
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+
+    // Animate hamburger into X
+    menuToggle.classList.toggle('open');
+  });
+}
+
+
+// === COOKIE CONSENT HANDLER ===
+document.addEventListener("DOMContentLoaded", () => {
+  const cookieBanner = document.querySelector(".cookie-banner");
+  const acceptBtn = cookieBanner ? cookieBanner.querySelector("button") : null;
+
+  // Check if consent was already given
+  if (localStorage.getItem("cookiesAccepted") === "true" && cookieBanner) {
+    cookieBanner.style.display = "none";
+  }
+
+  // Handle click on Accept button
+  if (acceptBtn && cookieBanner) {
+    acceptBtn.addEventListener("click", () => {
+      cookieBanner.style.display = "none";
+      localStorage.setItem("cookiesAccepted", "true");
+    });
+  }
+});

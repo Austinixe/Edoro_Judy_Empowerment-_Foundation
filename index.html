@@ -50,42 +50,63 @@
   <!-- === HEADER === -->
   <header>
     <nav class="navbar">
-      <!-- Logo -->
-      <div class="logo">
-        <a href="index.html">
-          <img src="assets/images/jed logo.png" alt="Edoror Judy Foundation Logo">
-        </a>
-      </div>
+  <div class="logo">
+    <a href="index.html">
+      <img src="assets/images/jed logo.png" alt="Jed Foundation Logo">
+    </a>
+  </div>
 
-      <!-- Mobile Menu Toggle -->
-      <div id="menu-toggle" class="menu-toggle" aria-label="Toggle menu" role="button" tabindex="0">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+  <div id="menu-toggle" class="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
-      <!-- Navigation Links -->
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="programs.html">Programs</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="donate.html">Donate</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="programs.html">Programs</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="donate.html">Donate</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
   </header>
 
   <main>
-    <!-- === HERO SECTION === -->
-    <section class="hero">
-      <img src="assets/images/bg_hero5.jpg" alt="Empowering Communities" class="hero-bg" loading="lazy"/>
-      <div class="hero-content">
-        <h1>Empowering Nigerians to Build Brighter Futures</h1>
-        <p>Together, we can break barriers, uplift communities, and inspire lasting change across Nigeria.</p>
-        <a href="donate.html" class="cta-btn">Donate Now</a>
-      </div>
-    </section>
+   <!-- === HERO SECTION === -->
+<section class="hero">
+  <img src="assets/images/bg_hero5.jpg" alt="Empowering Communities" class="hero-bg" loading="lazy"/>
+  <div class="hero-content">
+    <h1>
+      Empowering Nigerians to 
+      <span id="typed-text"></span>
+    </h1>
+    <p>Together, we can break barriers, uplift communities, and inspire lasting change across Nigeria.</p>
+    <a href="donate.html" class="cta-btn">Donate Now</a>
+  </div>
+</section>
+
+<!-- Typed.js library -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    var typed = new Typed("#typed-text", {
+      strings: [
+        "Build Brighter Futures",
+        "Break Barriers",
+        "Uplift Communities",
+        "Inspire Lasting Change"
+      ],
+      typeSpeed: 60,
+      backSpeed: 40,
+      backDelay: 2000,
+      loop: true
+    });
+  });
+</script>
 
 
 
@@ -216,5 +237,8 @@
     const navLinks = document.querySelector('.nav-links');
     toggle.addEventListener('click', () => navLinks.classList.toggle('show'));
   </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
 </body>
 </html>
