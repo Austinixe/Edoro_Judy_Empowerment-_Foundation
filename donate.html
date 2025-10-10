@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donate | Edoror Judy Empowerment Foundation</title>
+
+  <!-- SEO & Social -->
+  <meta name="description" content="Support EJPEEF in empowering communities and eradicating poverty in Nigeria. Your donation helps provide training, education, and sustainable programs." />
+  <meta name="keywords" content="donate NGO, charity Nigeria, EJPEEF donations, Edoror Judy Foundation" />
+  <meta name="author" content="Edoror Judy Empowerment Foundation" />
+  <link rel="canonical" href="https://edororjudyfoundation.org/donate.html" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://edororjudyfoundation.org/donate.html" />
+  <meta property="og:title" content="Donate | EJPEEF" />
+  <meta property="og:description" content="Join us in eradicating poverty and empowering women across Nigeria." />
+  <meta property="og:image" content="assets/images/jed-logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon & Fonts -->
+  <link rel="icon" href="assets/images/jed-logo.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/donate.css" />
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#ffcc00" />
+</head>
+
+<body>
+  <!-- === HEADER === -->
+  <header>
+    <nav class="navbar">
+      <!-- Logo -->
+      <div class="logo">
+        <a href="index.html">
+          <img src="assets/images/jed-logo.png" alt="Edoror Judy Foundation Logo">
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <div id="menu-toggle" class="menu-toggle" aria-label="Toggle menu" role="button" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="donate.html" class="active">Donate</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- === HERO SECTION === -->
+  <section class="hero">
+    <img src="assets/images/jed-logo.png" alt="Hero Background" class="hero-bg">
+    <div class="hero-content">
+      <h1>Empower Lives, Build Futures</h1>
+      <p>Your contribution transforms lives across Nigeria.</p>
+      <a href="#donation" class="cta-btn">Donate Now</a>
+    </div>
+  </section>
+
+  <!-- === DONATION SECTION === -->
+  <section id="donation" class="donate">
+    <div class="container">
+      <h2>Support Our Mission</h2>
+      <p>Your donation helps us empower more lives and build sustainable futures.</p>
+
+      <div class="donation-cards">
+        <!-- Online Donation -->
+        <div class="donation-card">
+          <h3>Online Donation</h3>
+          <form id="donationForm">
+            <label for="donorName">Full Name</label>
+            <input type="text" id="donorName" required>
+
+            <label for="donorEmail">Email Address</label>
+            <input type="email" id="donorEmail" required>
+
+            <label for="donationAmount">Amount (₦)</label>
+            <input type="number" id="donationAmount" min="100" required>
+
+            <button id="paystackBtn" type="button" class="cta-btn">Donate via Paystack</button>
+          </form>
+        </div>
+
+        <!-- Offline Donation -->
+        <div class="donation-card">
+          <h3>Offline Donation</h3>
+          <p>Support us via direct bank transfer.</p>
+          <button id="bankBtn" class="cta-btn secondary small">View Account Details</button>
+
+          <div id="bankDetails" class="bank-details hidden">
+            <p><strong>Bank Name:</strong> Zenith Bank</p>
+            <p><strong>Account Name:</strong> Edoror Judy Empowerment Foundation</p>
+            <p><strong>Account Number:</strong> 1234567890</p>
+          </div>
+
+          <form id="offlineForm" class="hidden">
+            <label for="offlineName">Full Name</label>
+            <input type="text" id="offlineName" required>
+
+            <label for="offlineEmail">Email Address</label>
+            <input type="email" id="offlineEmail" required>
+
+            <label for="offlineAmount">Amount Donated (₦)</label>
+            <input type="number" id="offlineAmount" min="100" required>
+
+            <label for="offlineMessage">Transaction Reference / Message</label>
+            <textarea id="offlineMessage" rows="3" placeholder="Include payment reference or message"></textarea>
+
+            <button type="submit" class="cta-btn secondary">Submit Confirmation</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- === FOOTER === -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="assets/images/jed-logo.png" alt="Edoror Judy Foundation Logo" />
+        <p>Building a brighter, empowered future for every Nigerian.</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="programs.html">Programs</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <p>
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms of Use</a> |
+        <a href="cookies.html">Cookies Policy</a>
+      </p>
+      <p>Registered NGO No: RC/EDJ/2025/8902095</p>
+      <p>22 Emaoudo Quarter Ekpoma</p>
+    </div>
+
+    <p class="copyright">© 2025 Edoror Judy Poverty Eradication and Empowerment Foundation. All rights reserved.</p>
+  </footer>
+
+
+
+
+  <!-- === BACK TO TOP BUTTON === -->
+  <button id="backToTop" title="Go to top">↑</button>
+
+  <!-- === SCRIPTS === -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script src="js/donate.js" defer></script>
+</body>
+</html>

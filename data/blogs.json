@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Empowering Women in Rural Nigeria",
+    "category": "Empowerment",
+    "date": "2025-05-15",
+    "image": "assets/images/blog1.jpg",
+    "excerpt": "Discover how our programs uplift women across rural communities."
+  },
+  {
+    "title": "Health Outreach Initiative 2025",
+    "category": "Health & Wellness",
+    "date": "2025-06-10",
+    "image": "assets/images/blog2.jpg",
+    "excerpt": "Our mobile clinics reached over 1,500 people this year."
+  },
+  {
+    "title": "Education Support for Underprivileged Youth",
+    "category": "Education",
+    "date": "2025-07-05",
+    "image": "assets/images/blog3.jpg",
+    "excerpt": "Scholarships, mentorship, and skill-building opportunities are transforming lives."
+  },
+  {
+    "title": "Community Empowerment Program Highlights",
+    "category": "Empowerment",
+    "date": "2025-08-20",
+    "image": "assets/images/blog4.jpg",
+    "excerpt": "Entrepreneurship and financial literacy programs for sustainable growth."
+  },
+  {
+    "title": "Annual Health & Wellness Campaign",
+    "category": "Health & Wellness",
+    "date": "2025-09-12",
+    "image": "assets/images/blog5.jpg",
+    "excerpt": "Free check-ups and medical awareness campaigns across multiple rural communities."
+  }
+]

@@ -1,0 +1,38 @@
+// === BLOG.JS ===
+document.addEventListener("DOMContentLoaded", () => {
+  const blogGrid = document.getElementById("blogGrid");
+  const categoryFilter = document.getElementById("categoryFilter");
+
+  // Load blogs from JSON
+  fetch("data/blogs.json")
+    .then(res => res.json())
+    .then(blogs => {
+      displayBlogs(blogs);
+
+      // Filter by category
+      categoryFilter.addEventListener("change", () => {
+        const selected = categoryFilter.value;
+        const filtered = selected === "all" 
+          ? blogs 
+          : blogs.filter(blog => blog.category === selected);
+        displayBlogs(filtered);
+      });
+    })
+    .catch(err => {
+      blogGrid.innerHTML = "<p>Failed to load blog posts.</p>";
+      console.error(err);
+    });
+
+  function displayBlogs(blogs) {
+    blogGrid.innerHTML = blogs.map(blog => `
+      <div class="blog-card">
+        <img src="${blog.image}" alt="${blog.title}">
+        <div class="blog-card-content">
+          <h3>${blog.title}</h3>
+          <p>${blog.summary}</p>
+          <a href="${blog.url}">Read More</a>
+        </div>
+      </div>
+    `).join("");
+  }
+});

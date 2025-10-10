@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Impact Stories | Edoror Judy Empowerment Foundation Blog</title>
+
+  <meta name="description" content="Read inspiring stories, updates, and impact reports from Edoror Judy Empowerment Foundation (EJPEEF) as we continue empowering communities across Nigeria." />
+  <meta name="keywords" content="EJPEEF blog, empowerment stories, poverty eradication news, Edoror Judy Foundation updates, NGO blog Nigeria" />
+  <meta name="author" content="Edoror Judy Empowerment Foundation" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://edororjudyfoundation.org/blog.html" />
+  <meta property="og:title" content="Edoror Judy Empowerment Foundation Blog" />
+  <meta property="og:description" content="Stay informed about EJPEEF projects and the lives being transformed through empowerment." />
+  <meta property="og:image" content="images/logo.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://edororjudyfoundation.org/blog.html" />
+  <meta name="twitter:title" content="EJPEEF Blog | Empowerment Stories & Updates" />
+  <meta name="twitter:description" content="Real stories of hope and empowerment from EJPEEF’s initiatives across Nigeria." />
+  <meta name="twitter:image" content="images/logo.png" />
+
+  <link rel="icon" href="images/logo.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="canonical" href="https://edororjudyfoundation.org/blog.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#ffcc00" />
+</head>
+
+<body>
+  <!-- === HEADER COMPONENT === -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html">
+          <img src="assets/images/jed logo.png" alt="Jed Foundation Logo">
+        </a>
+      </div>
+
+      <div id="menu-toggle" class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="donate.html">Donate</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- === BLOG SECTION === -->
+  <section class="blog" style="padding: 80px 10%; text-align: center;">
+    <!-- Heading with Divider -->
+    <div class="blog-header" style="margin-bottom: 40px;">
+      <h2 style="font-size: 2.8rem; color: #3c1361; margin-bottom: 10px;">Our Blog</h2>
+      <hr style="width: 80px; border: 2px solid #ffcc00; margin: 0 auto 15px auto;">
+      <p style="color: #555; font-size: 1.1rem;">Stay updated with our latest news, events, and success stories.</p>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="blog-filter" style="margin-bottom: 30px;">
+      <label for="categoryFilter" style="margin-right: 10px; font-weight: 600;">Filter by Category:</label>
+      <select id="categoryFilter" style="padding: 8px 12px; border-radius: 6px; border: 1px solid #ccc;">
+        <option value="all">All</option>
+        <option value="Education">Education</option>
+        <option value="Health & Wellness">Health & Wellness</option>
+        <option value="Empowerment">Empowerment</option>
+      </select>
+    </div>
+    
+
+    <!-- Blog Grid -->
+    <div class="blog-grid" id="blogGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+      <!-- Blog posts will be dynamically loaded here by blog.js -->
+    </div>
+  </section>
+
+  <!-- === FOOTER COMPONENT === -->
+ <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="assets/images/jed-logo.png" alt="Jed Foundation Logo" />
+        <p>Building a brighter, empowered future for every Nigerian.</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="programs.html">Programs</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+<div class="footer-legal">
+  <p>
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms of Use</a> |
+    <a href="cookies.html">Cookies Policy</a>
+  </p>
+  <p>Registered NGO No: RC/EDJ/2025/8902095</p>
+  <p> 22 Emaoudo Quarter Ekpoma</p>
+</div>
+
+    <p class="copyright">© 2025 Edoror Judy Povert Eradication and Empowerment Foundation. All rights reserved.</p>
+  </footer>
+ <!-- === SCRIPTS === -->
+<script src="js/main.js"></script>
+<script src="js/blog.js" defer></script>
+<script>
+  // Auto-update footer year
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+
+</body>
+</html>
