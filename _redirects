@@ -1,1 +1,5 @@
-/*  https://edororjudyempowermentfoundation.org/:splat  301!
+# Redirect all www traffic to non-www HTTPS
+https://www.edororjudyempowermentfoundation.org/*  https://edororjudyempowermentfoundation.org/:splat  301!
+
+# Redirect all HTTP traffic to HTTPS
+http://edororjudyempowermentfoundation.org/*  https://edororjudyempowermentfoundation.org/:splat  301!
