@@ -31,6 +31,11 @@
   <!-- Favicon & Fonts -->
   <link rel="icon" href="images/logo.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- ✅ Working Font Awesome 6.6.0 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css">
+
+  
   <link rel="stylesheet" href="css/style.css" />
 
   <link rel="canonical" href="https://edororjudyfoundation.org/contact.html" />
@@ -44,7 +49,7 @@
     <nav class="navbar">
       <div class="logo">
         <a href="index.html">
-          <img src="assets/images/jed-logo.png" alt="Jed Foundation Logo">
+          <img src="assets/images/logo_f.jpg" alt="Jed Foundation Logo">
         </a>
       </div>
 
@@ -71,64 +76,93 @@
   <h2>Contact Us</h2>
   <p>We would love to hear from you! Send us a message below:</p>
 
-  <form class="contact-form" action="" method="post">
-    <input type="text" name="name" placeholder="Your Name" required class="form-input">
-    <input type="email" name="email" placeholder="Your Email" required class="form-input">
-    <input type="text" name="subject" placeholder="Subject" required class="form-input">
-    <textarea name="message" placeholder="Your Message" rows="6" required class="form-textarea"></textarea>
-    <button type="submit" class="cta-btn">Send Message</button>
-  </form>
-
-  <div class="contact-info" style="margin-top: 40px; color: #333;">
-    <p><strong>Email:</strong> <a href="mailto:info@edororjudyfoundation.org">info@edororjudyfoundation.org</a></p>
-    <p><strong>Phone:</strong> <a href="tel:+2348012345678">+234 801 234 5678</a></p>
-    <p><strong>Address:</strong> 23 Unity Avenue, Abuja, Nigeria</p>
+  <form class="contact-form" action="#" method="post">
+  <div class="form-group">
+    <input type="text" id="name" name="name" required placeholder=" " />
+    <label for="name">Full Name</label>
   </div>
-</section>
+
+  <div class="form-group">
+    <input type="email" id="email" name="email" required placeholder=" " />
+    <label for="email">Email Address</label>
+  </div>
+
+  <div class="form-group">
+    <textarea id="message" name="message" required placeholder=" "></textarea>
+    <label for="message">Your Message</label>
+  </div>
+
+  <button type="submit" class="cta-btn">Send Message</button>
+</form>
+
+
 
 
     <!-- Contact Info -->
     <div class="contact-info" style="margin-top: 40px; color: #333;">
       <p><strong>Email:</strong> <a href="mailto:info@edororjudyfoundation.org">info@edororjudyfoundation.org</a></p>
-      <p><strong>Phone:</strong> <a href="tel:+2348012345678">+234 801 234 5678</a></p>
-      <p><strong>Address:</strong> 23 Unity Avenue, Abuja, Nigeria</p>
+      <p><strong>Phone:</strong> <a href="tel:+2347049691346">+2347049691346</a></p>
+   
     </div>
   </section>
 
-  <!-- === FOOTER COMPONENT === -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-logo">
-        <img src="assets/images/jed-logo.png" alt="Jed Foundation Logo" />
-        <p>Building a brighter, empowered future for every Nigerian.</p>
-      </div>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="programs.html">Programs</a>
-        <a href="blog.html">Blog</a>
-        <a href="donate.html">Donate</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="footer-social">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-x-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      </div>
-    </div>
-    <div class="footer-legal">
+  
+  
+<!-- === FOOTER SECTION === -->
+
+<footer class="footer">
+  <div class="footer-container">
+    
+    <!-- Logo & Mission -->
+    <div class="footer-about">
+      <img src="assets/images/logo_f.jpg" alt="EJPEEF Logo" class="footer-logo">
       <p>
-        <a href="privacy.html">Privacy Policy</a> |
-        <a href="terms.html">Terms of Use</a> |
-        <a href="cookies.html">Cookies Policy</a>
+        <strong>Edoror Judy Poverty Eradication & Empowerment Foundation (EJPEEF)</strong> is committed to empowering lives, eradicating poverty, and creating lasting opportunities across communities.
       </p>
-      <p>Registered NGO No: RC/EDJ/2025/8902095</p>
-      <p>22 Emaoudo Quarter Ekpoma</p>
     </div>
-    <p class="copyright">© 2025 Edoror Judy Poverty Eradication and Empowerment Foundation. All rights
-      reserved.</p>
-  </footer>
+
+    <!-- Quick Links -->
+    <div class="footer-nav">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="programs.html"><i class="fas fa-hands-helping"></i> Programs</a></li>
+        <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+        <li><a href="donate.html"><i class="fas fa-donate"></i> Donate</a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-social">
+      <h4>Connect With Us</h4>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Legal Info -->
+  <div class="footer-legal">
+    <p>
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms of Use</a> |
+      <a href="cookies.html">Cookies Policy</a>
+    </p>
+    <p>RC-8902095 | #44, Osimen Street, Emaudo Ekpoma, Nigeria</p>
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    <p>© 2025 Edoror Judy Poverty Eradication and Empowerment Foundation. All rights reserved.</p>
+  </div>
+</footer>
+
 
   <!-- === SCRIPTS === -->
   <script src="js/main.js"></script>

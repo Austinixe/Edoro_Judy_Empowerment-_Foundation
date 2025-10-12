@@ -28,15 +28,16 @@
   <meta name="twitter:description" content="Eradicating poverty and empowering lives across Nigeria through sustainable development." />
   <meta name="twitter:image" content="assets/images/jed-logo.png" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="assets/images/jed-logo.png" type="image/png" />
-
-  <!-- Fonts and Styles -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css" />
 
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-bx3Y+Y2x3A3xJvTzQOrQ5C7u/eh6QxBuS6xzV1o8sA8XJ6Hc7pWqE4Y0cZqN3RkYRtBQm4tFSRrmtv7vvYJfKg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- ✅ Working Font Awesome 6.6.0 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css">
+
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
 
   <!-- SEO Enhancements -->
   <link rel="canonical" href="https://edororjudyfoundation.org/" />
@@ -50,117 +51,143 @@
   <!-- === HEADER === -->
   <header>
     <nav class="navbar">
-  <div class="logo">
-    <a href="index.html">
-      <img src="assets/images/jed logo.png" alt="Jed Foundation Logo">
-    </a>
-  </div>
+      <div class="logo">
+        <a href="index.html">
+          <img src="assets/images/logo_f.jpg" alt="Jed Foundation Logo">
+        </a>
+      </div>
 
-  <div id="menu-toggle" class="menu-toggle">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+      <div id="menu-toggle" class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
 
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="programs.html">Programs</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="donate.html">Donate</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
-
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="donate.html">Donate</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-   <!-- === HERO SECTION === -->
-<section class="hero">
-  <img src="assets/images/bg_hero5.jpg" alt="Empowering Communities" class="hero-bg" loading="lazy"/>
-  <div class="hero-content">
-    <h1>
-      Empowering Nigerians to 
-      <span id="typed-text"></span>
-    </h1>
-    <p>Together, we can break barriers, uplift communities, and inspire lasting change across Nigeria.</p>
-    <a href="donate.html" class="cta-btn">Donate Now</a>
-  </div>
-</section>
+    <!-- === HERO SECTION === -->
+    <section class="hero">
+      <img src="assets/images/bg_hero5.jpg" alt="Empowering Communities" class="hero-bg" loading="lazy"/>
+      <div class="hero-content">
+        <h1>
+          Empowering Nigerians to 
+          <span id="typed-text"></span>
+        </h1>
+        <p>Together, we can break barriers, uplift communities, and inspire lasting change across Nigeria.</p>
+        <a href="donate.html" class="cta-btn">Donate Now</a>
+      </div>
+    </section>
 
-<!-- Typed.js library -->
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    var typed = new Typed("#typed-text", {
-      strings: [
-        "Build Brighter Futures",
-        "Break Barriers",
-        "Uplift Communities",
-        "Inspire Lasting Change"
-      ],
-      typeSpeed: 60,
-      backSpeed: 40,
-      backDelay: 2000,
-      loop: true
-    });
-  });
-</script>
-
+    <!-- Typed.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        var typed = new Typed("#typed-text", {
+          strings: [
+            "Build Brighter Futures",
+            "Break Barriers",
+            "Uplift Communities",
+            "Inspire Lasting Change"
+          ],
+          typeSpeed: 60,
+          backSpeed: 40,
+          backDelay: 2000,
+          loop: true
+        });
+      });
+    </script>
 
 
- <!-- === WHY DONATE SECTION === -->
-<section id="why-donate" class="why-donate" style="padding: 80px 10%; background-color: #f9f9fb; text-align: center;">
-  <h2 style="font-size: 2.5rem; color: #3c1361; margin-bottom: 20px;">Why Donate?</h2>
-  <p style="color: #555; font-size: 1.1rem; max-width: 800px; margin: 0 auto 50px auto;">
-    Investing in the skills and education of rural women, young adults, elderly, disadvantaged people, and persons with disabilities is crucial for sustainable development. Support our initiatives to empower communities, ensuring everyone has the tools and confidence to thrive.
-  </p>
 
-  <div class="counter-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 40px; max-width: 1000px; margin: 0 auto;">
-    <div class="counter-card">
-      <h3 class="counter" data-target="2500">0</h3>
-      <p>Lives Impacted</p>
-    </div>
-    <div class="counter-card">
-      <h3 class="counter" data-target="150">0</h3>
-      <p>Communities Reached</p>
-    </div>
-    <div class="counter-card">
-      <h3 class="counter" data-target="75">0</h3>
-      <p>Ongoing Programs</p>
-    </div>
-    <div class="counter-card">
-      <h3 class="counter" data-target="50">0</h3>
-      <p>Partnerships Formed</p>
-    </div>
+
+
+
+
+<!-- === OUR STORY SECTION === -->
+<section id="our-story" class="our-story">
+  <div class="story-content">
+    <h2>Our Story</h2>
+    <p>
+      Founded in 2018, <strong>Edoror Judy Poverty Eradication and Empowerment Foundation (EJPEEF)</strong> was established
+      with a heartfelt mission — to break the cycle of poverty by empowering the most vulnerable groups in society.
+      Through education, vocational training, and sustainable livelihood programs, EJPEEF has impacted over
+      <strong>2,500 lives</strong> across more than <strong>150 communities</strong> in Nigeria.
+    </p>
+    <p>
+      From supporting widows and orphans to mentoring young entrepreneurs, every initiative we lead is driven by compassion
+      and the belief that no one should be left behind. Together, we are building a nation where every person has a chance
+      to thrive with dignity and hope.
+    </p>
   </div>
 </section>
 
 
-   <section class="programs">
-  <h2>Our Programs</h2>
-  <div class="program-grid">
-    <div class="program-card">
-      <img src="assets/images/cm_inter_1.jpg" alt="Education Support" class="program-img">
-      <i class="fas fa-graduation-cap"></i>
-      <h3>Education Support</h3>
-      <p>Scholarships, mentorship, and skills training for underprivileged youth.</p>
-    </div>
-    <div class="program-card">
-      <img src="assets/images/Envi_clean.jpg" alt="Health & Wellness" class="program-img">
-      <i class="fas fa-stethoscope"></i>
-      <h3>Health & Wellness</h3>
-      <p>Community health outreach and access to essential care for all.</p>
-    </div>
-    <div class="program-card">
-      <img src="assets/images/cm_inter_3.jpg" alt="Empowerment Initiatives" class="program-img">
-      <i class="fas fa-seedling"></i>
-      <h3>Empowerment Initiatives</h3>
-      <p>Entrepreneurship and financial literacy programs for sustainable growth.</p>
-    </div>
-  </div>
-</section>
+
+
+
+
+
+    <!-- === WHY DONATE SECTION === -->
+    <section id="why-donate" class="why-donate" style="padding: 80px 10%; background-color: #f9f9fb; text-align: center;">
+      <h2 style="font-size: 2.5rem; color: #3c1361; margin-bottom: 20px;">Why Donate?</h2>
+      <p style="color: #555; font-size: 1.1rem; max-width: 800px; margin: 0 auto 50px auto;">
+        Investing in the skills and education of rural women, young adults, elderly, disadvantaged people, and persons with disabilities is crucial for sustainable development. Support our initiatives to empower communities, ensuring everyone has the tools and confidence to thrive.
+      </p>
+
+      <div class="counter-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 40px; max-width: 1000px; margin: 0 auto;">
+        <div class="counter-card">
+          <h3 class="counter" data-target="2500">0</h3>
+          <p>Lives Impacted</p>
+        </div>
+        <div class="counter-card">
+          <h3 class="counter" data-target="150">0</h3>
+          <p>Communities Reached</p>
+        </div>
+        <div class="counter-card">
+          <h3 class="counter" data-target="75">0</h3>
+          <p>Ongoing Programs</p>
+        </div>
+        <div class="counter-card">
+          <h3 class="counter" data-target="50">0</h3>
+          <p>Partnerships Formed</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- === OUR PROGRAMS === -->
+    <section class="programs">
+      <h2>Our Programs</h2>
+      <div class="program-grid">
+        <div class="program-card">
+          <img src="assets/images/cm_inter_1.jpg" alt="Education Support" class="program-img">
+          <i class="fas fa-graduation-cap"></i>
+          <h3>Education Support</h3>
+          <p>Scholarships, mentorship, and skills training for underprivileged youth.</p>
+        </div>
+        <div class="program-card">
+          <img src="assets/images/Envi_clean.jpg" alt="Health & Wellness" class="program-img">
+          <i class="fas fa-stethoscope"></i>
+          <h3>Health & Wellness</h3>
+          <p>Community health outreach and access to essential care for all.</p>
+        </div>
+        <div class="program-card">
+          <img src="assets/images/cm_inter_3.jpg" alt="Empowerment Initiatives" class="program-img">
+          <i class="fas fa-seedling"></i>
+          <h3>Empowerment Initiatives</h3>
+          <p>Entrepreneurship and financial literacy programs for sustainable growth.</p>
+        </div>
+      </div>
+    </section>
 
     <!-- === CALL TO ACTION === -->
     <section class="cta-section">
@@ -170,39 +197,65 @@
     </section>
   </main>
 
-  <!-- === FOOTER === -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-logo">
-        <img src="assets/images/jed-logo.png" alt="Edoror Judy Foundation Logo" />
-        <p>Building a brighter, empowered future for every Nigerian.</p>
-      </div>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="programs.html">Programs</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="footer-social">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      </div>
-    </div>
+  
+ 
 
-    <div class="footer-legal">
+<!-- === FOOTER SECTION === -->
+<footer class="footer">
+  <div class="footer-container">
+    
+    <!-- Logo & Mission -->
+    <div class="footer-about">
+      <img src="assets/images/" alt="EJPEEF Logo" class="footer-logo">
       <p>
-        <a href="privacy.html">Privacy Policy</a> |
-        <a href="terms.html">Terms of Use</a> |
-        <a href="cookies.html">Cookies Policy</a>
+        <strong>Edoror Judy Poverty Eradication & Empowerment Foundation (EJPEEF)</strong> is committed to empowering lives, eradicating poverty, and creating lasting opportunities across communities.
       </p>
-      <p>Registered NGO No: RC/EDJ/2025/8902095</p>
-      <p>22 Emaoudo Quarter Ekpoma</p>
     </div>
 
-    <p class="copyright">© 2025 Edoror Judy Poverty Eradication and Empowerment Foundation. All rights reserved.</p>
-  </footer>
+    <!-- Quick Links -->
+    <div class="footer-nav">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="programs.html"><i class="fas fa-hands-helping"></i> Programs</a></li>
+        <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+        <li><a href="donate.html"><i class="fas fa-donate"></i> Donate</a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-social">
+      <h4>Connect With Us</h4>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Legal Info -->
+  <div class="footer-legal">
+    <p>
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms of Use</a> |
+      <a href="cookies.html">Cookies Policy</a>
+    </p>
+    <p>RC-8902095 | #44, Osimen Street, Emaudo Ekpoma, Nigeria</p>
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    <p>© 2025 Edoror Judy Poverty Eradication and Empowerment Foundation. All rights reserved.</p>
+  </div>
+</footer>
+
+
+
 
   <!-- === BACK TO TOP BUTTON === -->
   <button id="backToTop" title="Go to top">↑</button>
@@ -238,7 +291,23 @@
     toggle.addEventListener('click', () => navLinks.classList.toggle('show'));
   </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const story = document.querySelector(".our-story");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        story.classList.add("show");
+        observer.unobserve(story);
+      }
+    });
+  }, { threshold: 0.2 });
+  
+  observer.observe(story);
+});
+</script>
 
 </body>
 </html>
