@@ -1,138 +1,138 @@
-// ==============================
-// SAFE DONATION HANDLER
-// ==============================
-const donationForm = document.getElementById('donationForm');
-if (donationForm) {
-  donationForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('donorName').value;
-    const email = document.getElementById('donorEmail').value;
-    const amount = document.getElementById('donationAmount').value * 100;
+document.addEventListener("DOMContentLoaded", () => {
+  // ==============================
+  // SAFE DONATION HANDLER
+  // ==============================
+  const donationForm = document.getElementById('donationForm');
+  if (donationForm) {
+    donationForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('donorName').value;
+      const email = document.getElementById('donorEmail').value;
+      const amount = document.getElementById('donationAmount').value * 100;
 
-    const handler = PaystackPop.setup({
-      key: 'pk_test_144b15e8615f9c388772721de3eecf32596131b0',
-      email,
-      amount,
-      currency: 'NGN',
-      ref: '' + Math.floor(Math.random() * 1000000000 + 1),
-      metadata: {
-        custom_fields: [{ display_name: "Full Name", variable_name: "full_name", value: name }]
-      },
-      callback: function(response) {
-        alert('Donation successful! Reference: ' + response.reference);
-        donationForm.reset();
-      },
-      onClose: function() {
-        alert('Donation window closed.');
-      }
+      const handler = PaystackPop.setup({
+        key: 'pk_test_144b15e8615f9c388772721de3eecf32596131b0',
+        email,
+        amount,
+        currency: 'NGN',
+        ref: '' + Math.floor(Math.random() * 1000000000 + 1),
+        metadata: {
+          custom_fields: [{ display_name: "Full Name", variable_name: "full_name", value: name }]
+        },
+        callback: function(response) {
+          alert('Donation successful! Reference: ' + response.reference);
+          donationForm.reset();
+        },
+        onClose: function() {
+          alert('Donation window closed.');
+        }
+      });
+      handler.openIframe();
     });
-    handler.openIframe();
-  });
-}
-
-// ==============================
-// OFFLINE DONATION TOGGLE
-// ==============================
-const showAccountBtn = document.getElementById('showAccountBtn');
-const bankDetails = document.getElementById('bankDetails');
-if (showAccountBtn && bankDetails) {
-  showAccountBtn.addEventListener('click', () => {
-    bankDetails.classList.toggle('show');
-    showAccountBtn.textContent = bankDetails.classList.contains('show') ? 'Hide Account Details' : 'View Account Details';
-  });
-}
-
-// ==============================
-// OFFLINE FORM SUBMISSION
-// ==============================
-const offlineForm = document.getElementById('offlineForm');
-if (offlineForm) {
-  offlineForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('offlineName').value;
-    const email = document.getElementById('offlineEmail').value;
-    const amount = document.getElementById('offlineAmount').value;
-    const message = document.getElementById('offlineMessage').value;
-
-    if (name && email && amount) {
-      alert(`Thank you, ${name}! Your offline donation of ₦${amount} has been noted.\nMessage/Reference: ${message}`);
-      offlineForm.reset();
-      if(bankDetails) bankDetails.classList.remove('show');
-      if(showAccountBtn) showAccountBtn.textContent = 'View Account Details';
-    }
-  });
-}
-
-// ==============================
-// BACK TO TOP BUTTON
-// ==============================
-const backToTopBtn = document.getElementById('backToTop');
-if (backToTopBtn) {
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 200) backToTopBtn.style.display = 'block';
-    else backToTopBtn.style.display = 'none';
-  });
-
-  backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-}
-// ==============================
-// COUNTER ANIMATION - WHY DONATE
-// ==============================
-const counters = document.querySelectorAll('.counter');
-counters.forEach(counter => {
-  const target = +counter.dataset.target;
-  let count = 0;
-
-  const updateCount = () => {
-    const increment = Math.ceil(target / 200); // speed factor
-    count += increment;
-    if(count > target) count = target;
-    counter.innerText = count.toLocaleString();
-    if(count < target) requestAnimationFrame(updateCount);
   }
 
-  // Animate only when visible
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting) {
-        updateCount();
-        observer.unobserve(entry.target);
+  // ==============================
+  // OFFLINE DONATION TOGGLE
+  // ==============================
+  const showAccountBtn = document.getElementById('showAccountBtn');
+  const bankDetails = document.getElementById('bankDetails');
+  if (showAccountBtn && bankDetails) {
+    showAccountBtn.addEventListener('click', () => {
+      bankDetails.classList.toggle('show');
+      showAccountBtn.textContent = bankDetails.classList.contains('show') 
+        ? 'Hide Account Details' 
+        : 'View Account Details';
+    });
+  }
+
+  // ==============================
+  // OFFLINE FORM SUBMISSION
+  // ==============================
+  const offlineForm = document.getElementById('offlineForm');
+  if (offlineForm) {
+    offlineForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('offlineName').value;
+      const email = document.getElementById('offlineEmail').value;
+      const amount = document.getElementById('offlineAmount').value;
+      const message = document.getElementById('offlineMessage').value;
+
+      if (name && email && amount) {
+        alert(`Thank you, ${name}! Your offline donation of ₦${amount} has been noted.\nMessage/Reference: ${message}`);
+        offlineForm.reset();
+        if(bankDetails) bankDetails.classList.remove('show');
+        if(showAccountBtn) showAccountBtn.textContent = 'View Account Details';
       }
     });
-  }, { threshold: 0.5 });
+  }
 
-  observer.observe(counter);
-});
+  // ==============================
+  // BACK TO TOP BUTTON
+  // ==============================
+  const backToTopBtn = document.getElementById('backToTop');
+  if (backToTopBtn) {
+    backToTopBtn.style.display = 'none'; // hide by default
 
+    window.addEventListener('scroll', () => {
+      backToTopBtn.style.display = (window.scrollY > 200) ? 'block' : 'none';
+    });
 
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
-// Mobile hamburger menu toggle
-const menuToggle = document.getElementById('menu-toggle');
-const navLinks = document.querySelector('.nav-links');
+  // ==============================
+  // COUNTER ANIMATION - WHY DONATE
+  // ==============================
+  const counters = document.querySelectorAll('.counter');
+  counters.forEach(counter => {
+    const target = +counter.dataset.target;
+    let count = 0;
 
-if (menuToggle && navLinks) {
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+    const updateCount = () => {
+      const increment = Math.ceil(target / 200); // speed factor
+      count += increment;
+      if(count > target) count = target;
+      counter.innerText = count.toLocaleString();
+      if(count < target) requestAnimationFrame(updateCount);
+    }
 
-    // Animate hamburger into X
-    menuToggle.classList.toggle('open');
+    // Animate only when visible
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          updateCount();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(counter);
   });
-}
 
+  // ==============================
+  // MOBILE HAMBURGER MENU TOGGLE
+  // ==============================
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('open'); // animate hamburger into X
+    });
+  }
 
-// === COOKIE CONSENT HANDLER ===
-document.addEventListener("DOMContentLoaded", () => {
+  // ==============================
+  // COOKIE CONSENT HANDLER
+  // ==============================
   const cookieBanner = document.querySelector(".cookie-banner");
   const acceptBtn = cookieBanner ? cookieBanner.querySelector("button") : null;
 
-  // Check if consent was already given
   if (localStorage.getItem("cookiesAccepted") === "true" && cookieBanner) {
     cookieBanner.style.display = "none";
   }
 
-  // Handle click on Accept button
   if (acceptBtn && cookieBanner) {
     acceptBtn.addEventListener("click", () => {
       cookieBanner.style.display = "none";
