@@ -77,7 +77,7 @@
   <main>
     <!-- === HERO SECTION === -->
     <section class="hero">
-      <img src="assets/images/" alt="Empowering Communities" class="hero-bg" loading="lazy"/>
+      <img src="assets/images/bg_hero5.jpg" alt="Empowering Communities" class="hero-bg" loading="lazy"/>
       <div class="hero-content">
         <h1>
           Empowering Nigerians to 
@@ -226,7 +226,7 @@
     </div>
 
   
-   <!-- Social Media -->
+<!-- Social Media -->
 <div class="footer-social">
   <h4>Connect With Us</h4>
   <div class="social-icons">
@@ -236,14 +236,12 @@
     <a href="https://www.instagram.com/judyempowermentfoundation?igsh=MWZydjZtYXk1YzZnbA==" aria-label="Instagram">
       <i class="fab fa-instagram"></i>
     </a>
-    <a href="#" aria-label="Twitter">
-      <i class="fab fa-twitter"></i>
-    </a>
-    <a href="#" aria-label="LinkedIn">
-      <i class="fab fa-linkedin-in"></i>
+    <a href="https://x.com/judyempowermentfoundation" aria-label="X (formerly Twitter)">
+      <i class="fab fa-x-twitter"></i>
     </a>
   </div>
 </div>
+
 
 
   </div>
@@ -290,10 +288,22 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Cookie banner close
-    document.getElementById('closeCookie').addEventListener('click', () => {
-      document.getElementById('cookieBanner').style.display = 'none';
-    });
+    // Cookie banner show/hide with memory
+document.addEventListener("DOMContentLoaded", () => {
+  const cookieBanner = document.getElementById("cookieBanner");
+  const closeCookie = document.getElementById("closeCookie");
+
+  // Show banner only if not previously accepted
+  if (!localStorage.getItem("cookiesAccepted")) {
+    cookieBanner.style.display = "flex";
+  }
+
+  closeCookie.addEventListener("click", () => {
+    cookieBanner.style.display = "none";
+    localStorage.setItem("cookiesAccepted", "true");
+  });
+});
+
 
     // Mobile menu toggle
     const toggle = document.getElementById('menu-toggle');
