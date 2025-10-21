@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const handler = PaystackPop.setup({
-      key: "pk_test_144b15e8615f9c388772721de3eecf32596131b0", // Replace with your key
+      key: "pk_live_0bf88ed7e1cccb629216b052ac3647bbc895dbfe", // Replace with your key
       email: donorEmail.value,
       amount: donationAmount.value * 100, // Naira to Kobo
       currency: "NGN",
