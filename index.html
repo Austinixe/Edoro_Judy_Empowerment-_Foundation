@@ -275,25 +275,23 @@
     <button id="closeCookie">Got it!</button>
   </div>
 
-  <!-- === MAIN JS === -->
-  <script src="js/main.js"></script>
+ <!-- === MAIN JS === -->
+<script src="js/main.js"></script>
 
-  <script>
-    // Back to top button
-    const backToTopBtn = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      backToTopBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
-    });
-    backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+<script>
+  // Back to top button
+  const backToTopBtn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    backToTopBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
+  });
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 
-    // Cookie banner show/hide with memory
-document.addEventListener("DOMContentLoaded", () => {
+  // Cookie banner show/hide with memory
   const cookieBanner = document.getElementById("cookieBanner");
   const closeCookie = document.getElementById("closeCookie");
 
-  // Show banner only if not previously accepted
   if (!localStorage.getItem("cookiesAccepted")) {
     cookieBanner.style.display = "flex";
   }
@@ -302,31 +300,25 @@ document.addEventListener("DOMContentLoaded", () => {
     cookieBanner.style.display = "none";
     localStorage.setItem("cookiesAccepted", "true");
   });
-});
 
+  // Mobile menu toggle
+  const toggle = document.getElementById('menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => navLinks.classList.toggle('show'));
 
-    // Mobile menu toggle
-    const toggle = document.getElementById('menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    toggle.addEventListener('click', () => navLinks.classList.toggle('show'));
-  </script>
-
-
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
+  // Story animation
   const story = document.querySelector(".our-story");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        story.classList.add("show");
-        observer.unobserve(story);
-      }
-    });
-  }, { threshold: 0.2 });
-  
-  observer.observe(story);
-});
+  if (story) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          story.classList.add("show");
+          observer.unobserve(story);
+        }
+      });
+    }, { threshold: 0.2 });
+    observer.observe(story);
+  }
 </script>
 
 </body>

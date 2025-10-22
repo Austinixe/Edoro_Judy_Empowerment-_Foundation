@@ -123,20 +123,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ==============================
+  
+  
   // COOKIE CONSENT HANDLER
   // ==============================
   const cookieBanner = document.querySelector(".cookie-banner");
-  const acceptBtn = cookieBanner ? cookieBanner.querySelector("button") : null;
+const acceptBtn = cookieBanner ? cookieBanner.querySelector("button") : null;
 
-  if (localStorage.getItem("cookiesAccepted") === "true" && cookieBanner) {
+if (cookieBanner && localStorage.getItem("cookiesAccepted") !== "true") {
+  cookieBanner.style.display = "flex";
+}
+
+if (acceptBtn && cookieBanner) {
+  acceptBtn.addEventListener("click", () => {
     cookieBanner.style.display = "none";
-  }
-
-  if (acceptBtn && cookieBanner) {
-    acceptBtn.addEventListener("click", () => {
-      cookieBanner.style.display = "none";
-      localStorage.setItem("cookiesAccepted", "true");
-    });
-  }
-});
+    localStorage.setItem("cookiesAccepted", "true");
+  });
+}
