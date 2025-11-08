@@ -1,142 +1,185 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ==============================
-  // SAFE DONATION HANDLER
-  // ==============================
-  const donationForm = document.getElementById('donationForm');
-  if (donationForm) {
-    donationForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const name = document.getElementById('donorName').value;
-      const email = document.getElementById('donorEmail').value;
-      const amount = document.getElementById('donationAmount').value * 100;
+    // ==============================
+    // SAFE DONATION HANDLER (PAYSTACK)
+    // ==============================
+    const donationForm = document.getElementById('donationForm');
+    if (donationForm) {
+        donationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Ensure PaystackPop is loaded before calling setup
+            if (typeof PaystackPop === 'undefined') {
+                alert('Payment gateway failed to load. Please try refreshing the page.');
+                return;
+            }
 
-      const handler = PaystackPop.setup({
-        key: 'pk_test_144b15e8615f9c388772721de3eecf32596131b0',
-        email,
-        amount,
-        currency: 'NGN',
-        ref: '' + Math.floor(Math.random() * 1000000000 + 1),
-        metadata: {
-          custom_fields: [{ display_name: "Full Name", variable_name: "full_name", value: name }]
-        },
-        callback: function(response) {
-          alert('Donation successful! Reference: ' + response.reference);
-          donationForm.reset();
-        },
-        onClose: function() {
-          alert('Donation window closed.');
-        }
-      });
-      handler.openIframe();
-    });
-  }
+            const name = document.getElementById('donorName').value;
+            const email = document.getElementById('donorEmail').value;
+            // Use parseFloat for potential non-integer amounts, multiply by 100 for kobo/cents
+            const amount = parseFloat(document.getElementById('donationAmount').value) * 100;
 
-  // ==============================
-  // OFFLINE DONATION TOGGLE
-  // ==============================
-  const showAccountBtn = document.getElementById('showAccountBtn');
-  const bankDetails = document.getElementById('bankDetails');
-  if (showAccountBtn && bankDetails) {
-    showAccountBtn.addEventListener('click', () => {
-      bankDetails.classList.toggle('show');
-      showAccountBtn.textContent = bankDetails.classList.contains('show') 
-        ? 'Hide Account Details' 
-        : 'View Account Details';
-    });
-  }
-
-  // ==============================
-  // OFFLINE FORM SUBMISSION
-  // ==============================
-  const offlineForm = document.getElementById('offlineForm');
-  if (offlineForm) {
-    offlineForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const name = document.getElementById('offlineName').value;
-      const email = document.getElementById('offlineEmail').value;
-      const amount = document.getElementById('offlineAmount').value;
-      const message = document.getElementById('offlineMessage').value;
-
-      if (name && email && amount) {
-        alert(`Thank you, ${name}! Your offline donation of ₦${amount} has been noted.\nMessage/Reference: ${message}`);
-        offlineForm.reset();
-        if(bankDetails) bankDetails.classList.remove('show');
-        if(showAccountBtn) showAccountBtn.textContent = 'View Account Details';
-      }
-    });
-  }
-
-  // ==============================
-  // BACK TO TOP BUTTON
-  // ==============================
-  const backToTopBtn = document.getElementById('backToTop');
-  if (backToTopBtn) {
-    backToTopBtn.style.display = 'none'; // hide by default
-
-    window.addEventListener('scroll', () => {
-      backToTopBtn.style.display = (window.scrollY > 200) ? 'block' : 'none';
-    });
-
-    backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-
-  // ==============================
-  // COUNTER ANIMATION - WHY DONATE
-  // ==============================
-  const counters = document.querySelectorAll('.counter');
-  counters.forEach(counter => {
-    const target = +counter.dataset.target;
-    let count = 0;
-
-    const updateCount = () => {
-      const increment = Math.ceil(target / 200); // speed factor
-      count += increment;
-      if(count > target) count = target;
-      counter.innerText = count.toLocaleString();
-      if(count < target) requestAnimationFrame(updateCount);
+            const handler = PaystackPop.setup({
+                // IMPORTANT: Replace with your actual LIVE public key when deploying
+                key: 'pk_test_144b15e8615f9c388772721de3eecf32596131b0', 
+                email,
+                amount,
+                currency: 'NGN',
+                ref: 'EJPEEF_' + Math.floor(Math.random() * 1000000000 + 1), // Better unique reference
+                metadata: {
+                    custom_fields: [{ display_name: "Full Name", variable_name: "full_name", value: name }]
+                },
+                callback: function(response) {
+                    alert('Donation successful! Reference: ' + response.reference);
+                    // You would typically send the response.reference to your server here 
+                    // to verify the payment status for security.
+                    donationForm.reset();
+                },
+                onClose: function() {
+                    console.log('Donation window closed by user.');
+                }
+            });
+            handler.openIframe();
+        });
     }
 
-    // Animate only when visible
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) {
-          updateCount();
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
+    // ==============================
+    // OFFLINE DONATION TOGGLE
+    // ==============================
+    const showAccountBtn = document.getElementById('showAccountBtn');
+    const bankDetails = document.getElementById('bankDetails');
+    if (showAccountBtn && bankDetails) {
+        showAccountBtn.addEventListener('click', () => {
+            bankDetails.classList.toggle('show');
+            showAccountBtn.textContent = bankDetails.classList.contains('show') 
+                ? 'Hide Account Details' 
+                : 'View Account Details';
+        });
+    }
 
-    observer.observe(counter);
-  });
+    // ==============================
+    // OFFLINE FORM SUBMISSION
+    // ==============================
+    const offlineForm = document.getElementById('offlineForm');
+    if (offlineForm) {
+        offlineForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('offlineName').value.trim();
+            const email = document.getElementById('offlineEmail').value.trim();
+            const amount = document.getElementById('offlineAmount').value.trim();
+            const message = document.getElementById('offlineMessage').value.trim();
 
-  // ==============================
-  // MOBILE HAMBURGER MENU TOGGLE
-  // ==============================
-  const menuToggle = document.getElementById('menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      menuToggle.classList.toggle('open'); // animate hamburger into X
+            if (name && email && amount) {
+                // IMPORTANT: In a real application, you would send this data to your server/CRM 
+                // via fetch() or XMLHttpRequest instead of just an alert.
+                alert(`Thank you, ${name}! Your offline donation of ₦${amount} has been noted. We will check our bank records for your transfer.\nMessage/Reference: ${message}`);
+                offlineForm.reset();
+                if(bankDetails) bankDetails.classList.remove('show');
+                if(showAccountBtn) showAccountBtn.textContent = 'View Account Details';
+            } else {
+                alert('Please fill in your Name, Email, and Amount for your offline donation.');
+            }
+        });
+    }
+
+    // ==============================
+    // BACK TO TOP BUTTON
+    // ==============================
+    const backToTopBtn = document.getElementById('backToTop');
+    if (backToTopBtn) {
+        // You can remove the default style setting here if CSS handles the initial state
+        // backToTopBtn.style.display = 'none'; 
+
+        const toggleVisibility = () => {
+            // Use class manipulation for CSS transitions
+            if (window.scrollY > 200) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        };
+
+        window.addEventListener('scroll', toggleVisibility);
+        // Call once to set initial state if page is loaded scrolled
+        toggleVisibility(); 
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // ==============================
+    // COUNTER ANIMATION - WHY DONATE
+    // IMPROVED: Simplified updateCount function
+    // ==============================
+    const counters = document.querySelectorAll('.counter');
+    
+    const animateCounter = (counter) => {
+        const target = +counter.dataset.target;
+        const duration = 1500; // 1.5 seconds
+        const start = performance.now();
+
+        const step = (timestamp) => {
+            const elapsed = timestamp - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const currentCount = Math.floor(progress * target);
+            
+            counter.innerText = currentCount.toLocaleString();
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            } else {
+                counter.innerText = target.toLocaleString();
+            }
+        };
+        requestAnimationFrame(step);
+    };
+
+    counters.forEach(counter => {
+        // Set initial value to 0 to ensure it's visible before animation
+        counter.innerText = '0'; 
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(counter);
     });
-  }
 
-  
-  
-  // COOKIE CONSENT HANDLER
-  // ==============================
-  const cookieBanner = document.querySelector(".cookie-banner");
-const acceptBtn = cookieBanner ? cookieBanner.querySelector("button") : null;
+    // ==============================
+    // MOBILE HAMBURGER MENU TOGGLE
+    // ==============================
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('open'); // animate hamburger into X
+        });
+    }
 
-if (cookieBanner && localStorage.getItem("cookiesAccepted") !== "true") {
-  cookieBanner.style.display = "flex";
-}
+    // ==============================
+    // COOKIE CONSENT HANDLER
+    // IMPROVED: Consolidated checks
+    // ==============================
+    const cookieBanner = document.querySelector(".cookie-banner");
+    
+    if (cookieBanner) {
+        const acceptBtn = cookieBanner.querySelector("button");
 
-if (acceptBtn && cookieBanner) {
-  acceptBtn.addEventListener("click", () => {
-    cookieBanner.style.display = "none";
-    localStorage.setItem("cookiesAccepted", "true");
-  });
-}
+        // Only show if the banner exists AND cookies haven't been accepted
+        if (localStorage.getItem("cookiesAccepted") !== "true") {
+            cookieBanner.classList.add('visible'); // Use class for showing/hiding
+        }
+
+        if (acceptBtn) {
+            acceptBtn.addEventListener("click", () => {
+                cookieBanner.classList.remove('visible');
+                localStorage.setItem("cookiesAccepted", "true");
+            });
+        }
+    }
+});
